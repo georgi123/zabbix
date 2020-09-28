@@ -23,9 +23,9 @@ else
 fi
 
 echo '02aaa372ba14af274d23e11760ce72dfece18e90a6e490d97b725914e5cbb159' > /etc/zabbix/zabbix_agent.psk
-cp  zabbix_agentd.conf /etc/zabbix/zabbix_agentd.conf
+cp  borica_zabbix/zabbix_agentd.conf /etc/zabbix/zabbix_agentd.conf
 mkdir -p /usr/lib/zabbix/externalscripts/ 
-cp oscheck.sh /usr/lib/zabbix/externalscripts/
+cp borica_zabbix/oscheck.sh /usr/lib/zabbix/externalscripts/
 ####SETUP ZABBIX CONFIGURATON FILE##########################################################
 sed -i "s/^Hostname=/Hostname=${Host}.tst.srv/" /etc/zabbix/zabbix_agentd.conf 
 #############################################################################################
