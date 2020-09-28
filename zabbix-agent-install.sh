@@ -29,6 +29,12 @@ cp oscheck.sh /usr/lib/zabbix/externalscripts/
 ####SETUP ZABBIX CONFIGURATON FILE##########################################################
 sed -i "s/^Hostname=/Hostname=${Host}.tst.srv/" /etc/zabbix/zabbix_agentd.conf 
 #############################################################################################
+####SETUP FIREWALL#########################################################################
+#zabbix
+firewall-cmd --permanent --add-port=10050/tcp
+#apply rules
+firewall-cmd --reload
+################################################################################################
 chown -R zabbix: /var/run/zabbix/
 chown -R zabbix: /usr/lib/zabbix/
 systemctl enable zabbix-agent
