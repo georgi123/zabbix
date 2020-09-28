@@ -6,7 +6,7 @@
 ###vars###
 command=rpm
 os=$(grep -E '^NAME' /etc/*release|awk -F '\"' '{print $2}')
-Host=$(hostname -f)
+Host=$(hostname)
 
 $command -ivh zabbix-agent-4.4.6-*
 
@@ -27,7 +27,7 @@ cp  zabbix_agentd.conf /etc/zabbix/zabbix_agentd.conf
 mkdir -p /usr/lib/zabbix/externalscripts/ 
 cp oscheck.sh /usr/lib/zabbix/externalscripts/
 ####SETUP ZABBIX CONFIGURATON FILE##########################################################
-sed -i 's/^Hostname=/Hostname=$Host/' /etc/zabbix/zabbix_agentd.conf 
+sed -i 's/^Hostname=/Hostname=${Host}.tst.srv/' /etc/zabbix/zabbix_agentd.conf 
 #############################################################################################
 chown -R zabbix: /var/run/zabbix/
 chown -R zabbix: /usr/lib/zabbix/
