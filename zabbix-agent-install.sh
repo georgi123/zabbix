@@ -17,8 +17,10 @@ unzip borica_zabbix.zip
 else 
  if [ "$os"  == "SLES" ]; then
    zypper -n in unzip
+   unzip borica_zabbix.zip
  else
    yum -y install unzip
+   unzip borica_zabbix.zip
   fi
 fi
 
