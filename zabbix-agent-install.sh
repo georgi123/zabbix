@@ -37,7 +37,7 @@ firewall-cmd --permanent --add-port=10050/tcp
 #apply rules
 firewall-cmd --reload
 ################################################################################################
-chown -r zabbix:  /etc/zabbix
+chown -R zabbix:  /etc/zabbix
 chown -R zabbix: /var/run/zabbix/
 chown -R zabbix: /usr/lib/zabbix/
 systemctl enable zabbix-agent
